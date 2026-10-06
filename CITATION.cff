@@ -1,0 +1,18 @@
+cff-version: 1.2.0
+message: "Please cite this software and report its reference-planning and configuration-estimation scope."
+type: software
+title: "AgriWeave: Farmland Reference Routes and Work-Time Efficiency"
+version: 1.0.0
+date-released: 2026-10-06
+authors:
+  - name: "lihuibin"
+repository-code: "https://github.com/bbly-oneday/AgriWeave"
+url: "https://github.com/bbly-oneday/AgriWeave"
+license: MIT
+abstract: "Research software for farmland partitioning, main-body swaths, connected geometric reference routes and configuration-estimated work-time efficiency, with incremental GeoPackage delivery. Not physically certified vehicle control."
+keywords:
+  - farmland
+  - coverage-path-planning
+  - agricultural-machinery
+  - work-time-efficiency
+  - geospatial

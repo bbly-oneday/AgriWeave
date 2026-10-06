@@ -1,0 +1,12 @@
+# 当前研究项目 Python 3.12 环境验证版本；Fields2Cover 原生库另行安装。
+# psutil 用于可用内存与启动时CPU负载探测，threadpoolctl 限制子进程数值库线程。
+numpy==2.5.1
+shapely==2.1.2
+geopandas==1.1.4
+pyproj==3.7.2
+pandas==2.3.3
+matplotlib==3.11.1
+pyogrio==0.13.0
+scipy==1.18.0
+psutil==7.2.2
+threadpoolctl==3.6.0

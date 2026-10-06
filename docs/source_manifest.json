@@ -1,0 +1,26 @@
+{
+  "release": "AgriWeave 1.0.0",
+  "core_version": "V7.0.10",
+  "source_sha256": {
+    "validator.py": "46fcdeb5c021cdc901c8eea95a7f6bcd5086a3e47f73533f9a408348226b3473",
+    "planner.py": "37bdceb0386badcdf3b476e609ab02f620ab2752d4dc0a88a2edaa6bdc826dc5",
+    "swath_batch.py": "cfee13e9b23cdf1f5ff738533282da8c2c2900658eacab77b411bf9e22f4fb61",
+    "route.py": "ab427ab0acab6c24954ac6ec879f831aad9001116b79f62c57ce7faca40a3cce",
+    "scene.py": "75b2b02319121b2f1a102276e6ca0d67eb103c57bf0e7f9c37e1ad58ddc37074",
+    "swath_seams.py": "b70eeee2d0765f321a999800bbdaa6a66733a1bcfd003164552e5bd8cbeddc41",
+    "calculate_work_time_efficiency.py": "79543c949663df7cd61741ec58418fa266a263e390baca23f0a23c85ab8da9f1",
+    "io_utils.py": "129ff31392a4e0a2cc03b2c5c875e372fef4652524d9c80724022d6498830f27",
+    "swath_planner.py": "e23f2d46442c80df1c1417d7b68d997fbdbc1bbe0054d21e68265abad20a4325",
+    "main.py": "54f6ca38743765e61c17b1b8d1cae9f6a28598d70d98b08719bbdb4e514f6b98",
+    "route_planner.py": "4f79f9ceaa1a90d8c3e9d9965c7ff136d5519ef63c17dd06b1fbc9c36250ea74"
+  },
+  "core_source_byte_identical": true,
+  "packaging_changes": [
+    "独立启动脚本和公开说明",
+    "仅保留当前测试、审计及其辅助脚本",
+    "人工样例输入默认值",
+    "清空本地条带可信注册表",
+    "可选20田spawn夹具缺失时明确跳过",
+    "已知投影原始输入限制：提供独立EPSG:4326标准化工具，内核不改"
+  ]
+}
