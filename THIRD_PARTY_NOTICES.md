@@ -6,4 +6,4 @@ AgriWeave自有代码采用MIT许可。独立安装的依赖不因本项目许�
 
 研究中使用Fields2Cover时，请同时按[上游引用说明](https://github.com/Fields2Cover/Fields2Cover#citing)引用其论文；AgriWeave的CITATION.cff不是对上游贡献的替代。
 
-人工样例由tempscript/create_demo_fields.py直接构造，不对应真实田块。维护者350田验证的原始数据与结果不包含在本仓库，不能从代码许可推断该数据的再分发许可。
+人工样例由tempscript/create_demo_fields.py直接构造，不对应真实田块。维护者于2026-10-06明确要求将V7/data中的fields2cover_350fields.gpkg公开，原文件及摘要保存在data目录；其source_file和country属性原样保留用于追溯。运行结果不包含在本仓库。代码MIT许可不自动变更数据及其原始来源的许可条件，本次未为数据另行指定许可。

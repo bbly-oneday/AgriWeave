@@ -2,7 +2,7 @@
 
 - 正式实现位于src的十一模块；测试、审计和数据准备位于tempscript。先阅读README、docs/ARCHITECTURE.md、docs/CONFIGURATION.md和docs/RESULTS.md。
 - 根目录config.json是唯一日常项目配置。新增参数时同步消费者、校验、_help、文档和回归。输出参数快照和docs/source_manifest.json是追溯证据，不是额外用户配置。
-- 用户数据通过--input提供；不提交真实田块、运行输出、凭据或虚拟环境。所有测试、日志、临时文件、缓存和运行产物放outputs。
+- 用户数据通过--input提供；维护者于2026-10-06明确授权公开V7/data中的350田块样本，仅提交data/manifest.json登记的该原始GPKG及说明。其它用户数据、运行输出、凭据和虚拟环境不提交。所有测试、日志、临时文件、缓存和运行产物放outputs。
 - 发布1.0.0的十一模块与V7.0.10逐字节相同。scene.py、planner.py、swath_planner.py、swath_seams.py和swath_batch.py保持算法冻结，修改需获得维护者明确授权。
 - 默认reference+continuous输出完整几何参考路线及配置估算效率。参考联通、驾驶风格、主体覆盖、田头真实覆盖和实车认证分开报告。不能把独立GPKG一致性审计当成实车认证。
 - 修改前保存基线及反例，修改后运行相关回归；不能只替换哈希使未验证代码通过。更新源码后必须由真实输入建立新条带包、独立审计和显式封存。

@@ -43,7 +43,7 @@ export MPLCONFIGDIR="$PWD/outputs/.cache/matplotlib"
 
 ## 五步运行人工样例
 
-仓库不包含真实田块或运行产物。样例脚本以米制尺寸构造矩形、凹形和带孔洞的三个**人工田块**，再以EPSG:4326保存输入，全部产物位于outputs。以下命令各运行一次；重复运行请使用新的批次目录名。
+仓库包含维护者授权公开的[350田块样本](data/README.md)，不包含运行产物。以下先用人工小样例验证环境：样例脚本以米制尺寸构造矩形、凹形和带孔洞的三个**人工田块**，再以EPSG:4326保存输入，全部产物位于outputs。以下命令各运行一次；重复运行请使用新的批次目录名。
 
 ```bash
 # 1. 生成样例；仅为流程验证，不是实测资料
@@ -63,6 +63,23 @@ export MPLCONFIGDIR="$PWD/outputs/.cache/matplotlib"
 ```
 
 主体批次返回码2可能表示已有结果但接缝或质量检查未通过；先查看`swath_batch_summary.json`及具体问题，不能改摘要强行封存。独立封存检查主体覆盖，接缝告警仍须保留，不能称为全部质量通过。
+
+## 运行随仓库发布的350田块
+
+`data/fields2cover_350fields.gpkg`与V7/data原文件逐字节相同，图层为fields、CRS为EPSG:4326，350个field_id全部唯一。无需转换坐标；哈希及数据说明见[data/README.md](data/README.md)。以下每一步使用新的输出目录，独立审计或封存失败时先检查原因。
+
+```bash
+./run.sh --stage swaths --input data/fields2cover_350fields.gpkg \
+  --layer fields --out outputs/swaths350
+"$AGRIWEAVE_PYTHON" -B tempscript/seal_swath_bundle.py \
+  --source outputs/swaths350 --out outputs/swaths350_sealed
+./run.sh --stage routes --swath-bundle outputs/swaths350_sealed \
+  --out outputs/routes350
+"$AGRIWEAVE_PYTHON" -B tempscript/audit_compact_reference.py \
+  --gpkg outputs/routes350/reference_routes.gpkg --out outputs/routes350/audit.json
+```
+
+`config.json`的默认输入仍是人工三田，只有上述显式命令使用350田；本次数据发布不修改算法或原有配置。已有v1.0.0标签保持不变，数据在main分支中新增，并作为该研究版的独立Release附件提供。
 
 ## 使用自己的田块
 
@@ -117,11 +134,11 @@ export MPLCONFIGDIR="$PWD/outputs/.cache/matplotlib"
 
 ## 验证与已知限制
 
-源内核最近一次350田全流程验证：350/350完整参考联通、350/350配置估算效率、350/350独立审计通过，生产流程29分32秒；85田保留接缝重叠告警，21田保留驾驶风格REVIEW。公开仓库提供可复跑的人工样例和源码摘要，不分发该真实数据集、坐标或原始GPKG。详见[验证记录](docs/VALIDATION.md)和[剩余限制](docs/LIMITATIONS.md)。
+源内核最近一次350田全流程验证：350/350完整参考联通、350/350配置估算效率、350/350独立审计通过，生产流程29分32秒；85田保留接缝重叠告警，21田保留驾驶风格REVIEW。公开仓库提供该轮相同的原始350田GPKG、人工样例和源码摘要，不分发原始运行结果。上传数据本身不代表重新运行过350田完整流程。详见[验证记录](docs/VALIDATION.md)和[剩余限制](docs/LIMITATIONS.md)。
 
 参考连接通过不等于整体质量全部通过，也不等于车辆可以实际转过所有连接。田头参考线不证明田头已覆盖；没有真实田门、轴距、GNSS及作业日志时不能宣称实测效率。几十万田块尚未完成规模验证；先分片并进行代表性服务器压力测试。
 
-开发检查、贡献规则见[开发说明](docs/DEVELOPMENT.md)与[贡献指南](CONTRIBUTING.md)。仓库自带CI仅检查源码摘要、语法与发布文件完整性，不能替代原生GIS回归或实车验收。
+开发检查、贡献规则见[开发说明](docs/DEVELOPMENT.md)与[贡献指南](CONTRIBUTING.md)。仓库自带CI检查源码摘要、语法、发布文件和350田输入完整性，不能替代原生GIS回归或实车验收。
 
 ## 许可与引用
 

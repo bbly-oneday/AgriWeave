@@ -1,0 +1,14 @@
+{
+  "description": "按维护者明确要求发布的V7/data原始350田块样本；不包含运行结果。",
+  "files": [
+    {
+      "path": "data/fields2cover_350fields.gpkg",
+      "bytes": 507904,
+      "sha256": "f7386c198ceb6906e4ea999e132bbbce006efc39682cc515ab9b7c7f742549e0",
+      "layer": "fields",
+      "feature_count": 350,
+      "unique_field_id_count": 350,
+      "crs": "EPSG:4326"
+    }
+  ]
+}

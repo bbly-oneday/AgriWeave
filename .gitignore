@@ -1,6 +1,6 @@
-# Generated results, user data, environments and credentials stay local.
+# Generated results, unapproved user data, environments and credentials stay local.
 outputs/
-data/
+/data/*
 .venv/
 venv/
 __pycache__/
@@ -26,3 +26,8 @@ __pycache__/
 *.dbf
 *.prj
 *.prof
+
+# Maintainer-authorized benchmark data and its documentation only.
+!/data/README.md
+!/data/manifest.json
+!/data/fields2cover_350fields.gpkg
